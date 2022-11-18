@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+body {
+    font-size: 100%;
+    background: black;
+    color: white;
+}
+
+.navebar {
+    position: fixed;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.logo {
+    height: 30px;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    gap: 32px;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer
+}
+
+.menu-cadastro {
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.8s ease-in-out;
+}
+
+.menu-cadastro:hover {
+    background-color: rgba(255,0,0, 0.8);
+}
+
+.menu-login {
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.8s ease-in-out;
+}
+
+.menu-login:hover {
+    background-color: rgba(0,0,255, 0.8);
+}
+
+.corpo {
+    border-top: 0.4px solid red;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    color: red;
+}
+
+.img-corpo {
+    margin-top: 45px;
+}
+
+.conteudo-principal {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.conteudo-principal-titulo {
+    font-family: 'Anton', sans-serif;
+    color: red;
+    font-weight: 400px;
+    font-size: 64px;
+
+}
+
+.conteudo-principal-botao {
+    background-color: red;
+    width: 180px;
+    height: 60px;
+    box-shadow: 4px 5px 4px, rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.conteudo-secundario-titulo {
+    margin: 20px 0 0 20px;
+}
+
+.conteudo-secundario-texto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 25%;
+    text-align: justify;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.conteudo-secundario-texto img {
+    width: 200px;
+}
+
+.conteudo-secundario-texto span {
+    margin-left: 20px;
+}
+
+.conteudo-secundario-img {
+    background-size: cover;
+}
+
+.footer {
+    background: rgba(0,0,0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+}

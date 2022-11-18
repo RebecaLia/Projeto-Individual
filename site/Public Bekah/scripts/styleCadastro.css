@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+body {
+    font-size: 100%;
+    background: black;
+}
+
+.body-com-imagem {
+    background-image: url("./spiderman.png");
+    background-size: cover;
+}
+
+.navebar {
+    position: fixed;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.logo {
+    height: 30px;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    gap: 32px;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer
+}
+
+.menu-cadastro {
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.8s ease-in-out;
+}
+
+.menu-cadastro:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+.menu-login {
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.8s ease-in-out;
+}
+
+.menu-login:hover {
+    background-color: rgba(0, 0, 255, 0.8);
+}
+
+.corpo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.img-corpo {
+    margin-top: 20px;
+    height: auto;
+}
+
+.conteudo-principal {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.conteudo-principal-titulo {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400px;
+    font-size: 64px;
+
+}
+
+.conteudo-principal-botao {
+    background-color: red;
+    width: 180px;
+    height: 60px;
+    box-shadow: 4px 5px 4px, rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    color: aliceblue;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    margin-right: 200px;
+}
+
+.tipo_campo {
+    margin: 10px 0 2px 0;
+}
+
+.formulario input {
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.formulario .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: 1px solid white;
+    border-radius: 10px;
+}

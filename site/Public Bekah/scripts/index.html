@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header class="navebar">
+        <img class="logo" src="logo marvel.png" onclick="navigateTo('/index.html')">
+        <nav class="menu">
+            <a class="menu-home">Home</a>
+            <a class="menu-cadastro" href="./cadastro.html">Cadastro</a>
+            <a class="menu-login" href="./login.html">Login</a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="corpo">
+        <section class="conteudo">
+            <div class="conteudo-principal">
+                <h1 class="conteudo-principal-subtitulo">Os melhores filmes e personagens da Marvel studio</h1>
+                <button class="conteudo-principal-botao">Cadastre-se</button>
+            </div>
+            <img class="img-corpo" src="marvel logo.png" alt="">
+        </section>
+        <div class="conteudo-secundario">
+            <img class="conteudo-secundario-img" src="Marvel 6.png" alt="">
+            <h3 class="conteudo-secundario-texto">
+                <img src="avengers.png"/>
+                <span>
+                    O Universo Marvel é o universo compartilhado onde ocorrem as histórias
+                    na maioria dos títulos de quadrinhos americanos e outras mídias publicadas pela Marvel Entertainment.
+                </span>
+            </h3>
+        </div>
+        <footer class="footer">
+            &copy; Direitos reservados à Rebeca Lia - 2022.
+        </footer>
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>
+
+<script>
+    const navigateTo = path => {
+        window.location.href = path;
+    }
+</script>
