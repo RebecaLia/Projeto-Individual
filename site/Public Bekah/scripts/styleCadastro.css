@@ -12,14 +12,14 @@ body {
 }
 
 .body-com-imagem {
-    background-image: url("./spiderman.png");
+    background-image: url("marvel10.jpg");
     background-size: cover;
 }
 
 .navebar {
     position: fixed;
     width: 100vw;
-    background: rgba(0, 0, 0, 0.8);
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
