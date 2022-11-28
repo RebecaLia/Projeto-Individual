@@ -6,34 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marvel</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
 </head>
 
 <body>
     <header class="navebar">
-        <img class="logo" src="logo marvel.png" onclick="navigateTo('/index.html')">
+        <img class="logo" src="./assets/logo marvel.png" onclick="navigateTo('/index.html')">
         <nav class="menu">
             <a class="menu-home">Home</a>
             <a class="menu-cadastro" href="./cadastro.html">Cadastro</a>
             <a class="menu-login" href="./login.html">Login</a>
 
+            <a class="menu-sair" style="display: none;" onclick="sair()">Sair</a>
         </nav>
-
     </header>
 
 
     <main class="corpo">
         <section class="conteudo">
             <div class="conteudo-principal">
-                <h1 class="conteudo-principal-subtitulo">Os melhores filmes e personagens da Marvel studio</h1>
-                <button class="conteudo-principal-botao">Cadastre-se</button>
             </div>
-            <img class="img-corpo" src="marvel logo.png" alt="">
+            <img class="img-corpo" src="./assets/marvel logo.png" alt="">
         </section>
         <div class="conteudo-secundario">
-            <img class="conteudo-secundario-img" src="Marvel 6.png" alt="">
+            <img class="conteudo-secundario-img" src="./assets/Marvel 6.png" alt="">
             <h3 class="conteudo-secundario-texto">
-                <img src="https://v5j9q4b5.rocketcdn.me/wp-content/uploads/2020/08/martin-goodman-conheca-a-historia-de-um-dos-criadores-da-marvel-scaled.jpg.webp" />
+                <img
+                    src="https://v5j9q4b5.rocketcdn.me/wp-content/uploads/2020/08/martin-goodman-conheca-a-historia-de-um-dos-criadores-da-marvel-scaled.jpg.webp" />
                 <span>
                     Fundada no começo da década de 1930 por Martin Goodman, a Marvel Comics foi originalmente chamada de
                     Timely Comics. Seu fundador era editor de revistas que faziam sucesso com histórias de faroeste.
@@ -55,7 +54,26 @@
 </html>
 
 <script>
-    const navigateTo = path => {
-        window.location.href = path;
+    function navigateTo(caminho) {
+        window.location.href = caminho;
+    }
+
+    window.onload = () => {
+        const nome_usuario = sessionStorage.getItem("NOME_USUARIO");
+
+        if (nome_usuario) {
+            const botao_cadastro = document.querySelector('.menu-cadastro');
+            const botao_login = document.querySelector('.menu-login');
+            const botao_sair = document.querySelector('.menu-sair');
+
+            botao_cadastro.style.display = "none";
+            botao_login.style.display = "none";
+            botao_sair.style.display = "block"
+        }
+    }
+
+    function sair() {
+        sessionStorage.clear()
+        navigateTo(window.location.href)
     }
 </script>

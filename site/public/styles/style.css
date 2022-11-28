@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2? family= Anton & family= Inter:wght@100;200;300;400;500;600 & display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -75,7 +76,10 @@ body {
 }
 
 .img-corpo {
-    margin-top: 45px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30em
 }
 
 .conteudo-principal {
@@ -84,25 +88,7 @@ body {
     gap: 32px;
 }
 
-.conteudo-principal-titulo {
-    font-family: 'Anton', sans-serif;
-    color: red;
-    font-weight: 400px;
-    font-size: 64px;
 
-}
-
-.conteudo-principal-botao {
-    background-color: red;
-    width: 180px;
-    height: 60px;
-    box-shadow: 4px 5px 4px, rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-}
-
-.conteudo-secundario-titulo {
-    margin: 20px 0 0 20px;
-}
 
 .conteudo-secundario-texto {
     display: flex;

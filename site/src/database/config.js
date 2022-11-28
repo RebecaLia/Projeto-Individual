@@ -20,14 +20,16 @@ var sqlServerConfig = {
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
     host: "localhost",
-    database: "SEU_DATABASE",
-    user: "SEU_USUARIO",
-    password: "SUA_SENHA",
+    database: "marvel",
+    user: "root",
+    password: "sptech",
 };
 
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
     if (process.env.AMBIENTE_PROCESSO == "producao") {
+
+        console.log("PROD")
         return new Promise(function (resolve, reject) {
             sql.connect(sqlServerConfig).then(function () {
                 return sql.query(instrucao);
@@ -43,6 +45,8 @@ function executar(instrucao) {
             });
         });
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+
+        console.log("DEVVVV")
         return new Promise(function (resolve, reject) {
             var conexao = mysql.createConnection(mySqlConfig);
             conexao.connect();

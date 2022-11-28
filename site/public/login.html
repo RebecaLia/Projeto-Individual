@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styleLogin.css">
+    <title>tela login</title>
+</head>
+
+<body class="body-com-imagem">
+    <header class="navebar">
+        <img class="logo" src="./assets/logo marvel.png">
+        <nav class="menu">
+            <a class="menu-home" href="./index.html">Home</a>
+            <a class="menu-cadastro" href="./cadastro.html">Cadastro</a>
+            <a class="menu-login">Login</a>
+            <a class="menu-sair" style="display: none;" onclick="sair()">Sair</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-image">
+            <img src="assets/img tela de login 3.png" alt="">
+        </div>
+        <div class="form">
+            <div class="form-header">
+                <div class="title">
+                    <h1>Login</h1>
+                </div>
+                <div class="login-button">
+                    <button><a href="./cadastro.html">Cadastre-se</a></button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-box">
+                    <label for="email">E-mail</label>
+                    <input id="email" type="email" name="email" placeholder="Digite o seu Email" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="senha">Senha</label>
+                    <input id="senha" type="password" name="senha" placeholder="******" required>
+                </div>
+
+                <div class="continue-button">
+                    <button onclick="entrar()" ><a>Entrar</a></button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    const navigateTo = path => {
+        window.location.href = path;
+    }
+
+    function entrar() {
+
+        var emailVar = email.value;
+        var senhaVar = senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            // cardErro.style.display = "block"
+            alert("Preencha o login corretamente");
+            return false;
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./filmes.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+</script>
