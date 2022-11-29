@@ -1,14 +1,31 @@
-@import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
 
-body {
+
+/* body {
     font-size: 100%;
-    background: black;
+    background: #202124;
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+} 
+
+body {
+    font-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   flex-direction: column;
+   background-color: #202124;
 }
 
 .body-com-imagem {
@@ -16,7 +33,7 @@ body {
     background-size: cover;
 }
 
-.navebar {
+/* .navebar {
     width: 1200px;
     height: 100px;
     background-color: blue;
@@ -25,7 +42,17 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-}
+} */
+
+.navebar {
+    height: 100px;
+     width: 100vw;
+     background: transparent;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 10px;
+ }
 
 .logo {
     height: 30px;
@@ -162,7 +189,7 @@ h2 {
 }
 
 h3 {
-    color: black;
+    color: white;
     font-size: 26px;
 }
 
@@ -173,7 +200,7 @@ h3 {
 }
 
 .questions_box {
-    background-color: #ffffff;
+    background-color: #3C4043;
     padding: 60px;
     text-align: left;
     max-width: 960px;
@@ -204,7 +231,7 @@ h3 {
 }
 
 .button:hover {
-    background-color: red !important;
+    background-color: #202124 !important;
     color: white;
 }
 
@@ -222,7 +249,7 @@ h3 {
 }
 
 #progress_bar {
-    background-color: black;
+    background-color: white;
     width: 20%;
     height: 10px;
     transition: all 100ms ease-in-out;

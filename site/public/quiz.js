@@ -67,7 +67,7 @@ function totalScore(){
 }
 
 function getInfoBasedOnScore(){
-    if(totalScore() < 5){
+    if(totalScore() <= 5){
         var score_info = "Você não conhece muito sobre a Marvel";
     } else if(totalScore() > 5){
         var score_info = "Parabéns! Você é um vedadeiro fã da Marvel"
@@ -152,5 +152,62 @@ submit10.addEventListener('click', function(){
 function growProgressBar(percentage_width){
     var bar = document.getElementById("progress_bar");
     bar.style.width = percentage_width;
+}
+
+function navigateTo(caminho) {
+    window.location.href = caminho;
+}
+
+window.onload = () => {
+    const nome_usuario = sessionStorage.getItem("NOME_USUARIO");
+
+    if (nome_usuario) {
+        const botao_sair = document.querySelector('.menu-sair');
+
+        
+        botao_sair.style.display = "block"
+    }
+
+    div_filmes = document.getElementById("filmes");
+
+    fetch("/filmes/listar", {
+        method: "GET",
+    }).then(response => {
+        console.log(response)
+     const container = document.getElementById("container")
+        if(response.ok) {
+            response.json().then(filmes => {
+                for (filme of filmes) {
+                    
+                    const card = document.createElement("div");
+                    const img = document.createElement("img");
+                    const nome = document.createElement("span");
+                    const sinopse = document.createElement("p")
+                    const avaliacao = document.createElement("h5")
+
+                    card.setAttribute("class", "card")
+                    img.src = filme.img;
+                    img.width = 100
+
+                    nome.innerHTML = filme.titulo;
+                    sinopse.innerHTML = filme.sinopse
+                    avaliacao.innerHTML = `Avaliação : ${filme.avaliacao}`
+
+
+                    card.append(img, nome, sinopse, avaliacao);
+                    container.append(card)
+        
+                    
+                }
+            })
+        }
+
+    }).catch(error => console.log("erro: ", error))
+
+}
+
+function sair() {
+    sessionStorage.clear()
+    navigateTo(window.location.href="./index.html")
 }
 
