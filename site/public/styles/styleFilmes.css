@@ -72,7 +72,7 @@ body {
 
 .container-filmes{
     width: 95%;
-    height: 500px;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,5 +126,15 @@ body {
     color: yellow;
     font-size: 17px;
     margin-top: 5px;
+}
+
+::-webkit-scrollbar {
+    background-color: #202124;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: red;
 }
 

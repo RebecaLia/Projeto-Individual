@@ -10,19 +10,19 @@
 </head>
 
 <body class="body-com-imagem">
-    <header class="navebar">
-        <img class="logo" src="./assets/logo marvel.png">
-        <nav class="menu">
-            <a class="menu-home" href="./index.html">Home</a>
-            <a class="menu-cadastro" href="./cadastro.html">Cadastro</a>
-            <a class="menu-login">Login</a>
-            <a class="menu-sair" style="display: none;" onclick="sair()">Sair</a>
-        </nav>
-    </header>
+
+    <nav>
+        <div class="container-nav">
+          <img
+            class="logo"
+            src="./assets/logo marvel.png"
+            onclick="navigateTo('/index.html')"
+          />
+        </div>
+      </nav>
 
     <div class="container">
         <div class="form-image">
-            <img src="assets/img tela de login 3.png" alt="">
         </div>
         <div class="form">
             <div class="form-header">
@@ -30,7 +30,7 @@
                     <h1>Login</h1>
                 </div>
                 <div class="login-button">
-                    <button><a href="./cadastro.html">Cadastre-se</a></button>
+                    <a href="./cadastro.html"><button>Cadastre-se</button></a>
                 </div>
             </div>
 

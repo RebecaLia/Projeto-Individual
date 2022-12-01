@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,142 +8,188 @@
     <link rel="stylesheet" href="styles/quiz.css">
     <title>Quiz</title>
 </head>
+
 <body>
-  <header class="navebar">
-    <img class="logo" src="./assets/logo marvel.png" onclick="navigateTo('/index.html')">
-    <nav class="menu">
-        
-        <a class="menu-filme" href="./filmes.html">Filmes</a>
-        <a class="menu-filme">Quiz</a>
-        <a class="menu-filme" href="./perfil.html">Meu perfil</a>
-        <a class="menu-sair" onclick="sair()">Sair</a>
-    </nav>
-</header>
-    <div class="container">	
+    <header class="navebar">
+        <img class="logo" src="./assets/logo marvel.png" >
+        <nav class="menu">
+
+            <a class="menu-filme" href="./filmes.html">Filmes</a>
+            <a class="menu-filme">Quiz</a>
+            <a class="menu-filme" href="./deshboard.html">Deshboard</a>
+            <a class="menu-sair" onclick="sair()">Sair</a>
+        </nav>
+    </header>
+    <div class="container">
         <div class="row">
             <div class="two-thirds column">
-            <h3 class="titulo-quiz">Marvel quiz - O que você sabe sobre a Marvel?</h3>
-    
-            <div id="progress_bar"></div>
+                <h3 class="titulo-quiz">Marvel quiz - O que você sabe sobre a Marvel?</h3>
+
+                <div id="progress_bar"></div>
                 <form class="questions_box">
-    
+
                     <div id="question-1">
-                      <h2>Questão 1</h2>
-                        <h3>Qual dessas personagens não tem um filme com seus nomes?</h3>
-                        <input id="question-1-answer-a" type="radio" name="favelang" value=0>Pantera Negra<br>
-                        <input id="question-1-answer-b" type="radio" name="favelang" value=0>Homem de ferro<br>
-                        <input id="question-1-answer-c" type="radio" name="favelang" value=1>She hulk<br>
-                        <div id="submit1" class="button">Responder</div>
-                <div class="clearfix"></div>
+                        <div class="question_wrapper">
+                            <h2>Questão 1</h2>
+                            <h3>Qual dessas personagens não tem um filme com seus nomes?</h3>
+                            <div class="answer_wrapper">
+                                <input id="question-1-answer-a" type="radio" name="favelang" value=0>Pantera Negra<br>
+                                <input id="question-1-answer-b" type="radio" name="favelang" value=0>Homem de ferro<br>
+                                <input id="question-1-answer-c" type="radio" name="favelang" value=1>She hulk<br>
+                            </div>
+                            <div id="submit1" class="button">Responder</div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-    
-                   <div id="question-2">
-                       <h2>Questão 2</h2>
-                       <h3>Qual desses personagens foi o primeiro vingador?</h3>
-                     <input id="question-2-answer-a" type="radio" name="favelang" value="1">Capitão america<br>
-                       <input id="question-2-answer-b" type="radio" name="favelang" value="0">Homem de ferro<br>
-                       <input id="question-2-answer-c" type="radio" name="favelang" value="0">Hulk<br>
-                       <div id="submit2" class="button">Responder</div>
-               <div class="clearfix"></div>
-                   </div>
-    
-                   <div id="question-3">	
-                       <h2>Questão 3</h2>
-                       <h3>Quem foi Stan Lee?</h3>
-                     <input id="question-3-answer-a" type="radio" name="favelang" value="0">Não teve contato com a Marvel<br>
-                       <input id="question-3-answer-b" type="radio" name="favelang" value="0">Criador da Marvel<br>
-                       <input id="question-3-answer-c" type="radio" name="favelang" value="1">Escritor da Marvel<br>
-                       <div id="submit3" class="button">Responder</div>
-               <div class="clearfix"></div>
-                   </div>
-    
-             <div id="question-4">
-                <h2>Questão 4</h2>
-                <h3>Qual dessas alternativas apresenta os 3 atores do homem aranha?</h3>
-                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Robert Lewandowski, Tobey Garfield e Dennis Carry<br>
-                <input id="question-1-answer-b" type="radio" name="favelang" value="0">Tom Holland, Mark Rúffalo e Brice Johnson<br>
-                <input id="question-1-answer-c" type="radio" name="favelang" value="1">Tom Holland, Andrew Garfield e Tobey Maguire<br>
-                <div id="submit4" class="button">Responder</div>
-                <div class="clearfix"></div>
-              </div>
-    
-              <div id="question-5">
-                <h2>Questão 5</h2>
-                <h3>Qual o nome do hulk?</h3>
-                <input id="question-1-answer-a" type="radio" name="favelang" value="1">Bruce Benner<br>
-                <input id="question-1-answer-b" type="radio" name="favelang" value="0">Tad Bruce<br>
-                <input id="question-1-answer-c" type="radio" name="favelang" value="0">Bank Hodey<br>
-                <div id="submit5" class="button">Responder</div>
-                <div class="clearfix"></div>
-              </div>
 
-              <div id="question-6">
-                <h2>Questão 6</h2>
-                <h3>Quem construiu o visão?</h3>
-                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Thor<br>
-                <input id="question-1-answer-b" type="radio" name="favelang" value="0">Bruce Benner<br>
-                <input id="question-1-answer-c" type="radio" name="favelang" value="1">Utron<br>
-                <div id="submit6" class="button">Responder</div>
-                <div class="clearfix"></div>
-              </div>
+                    <div id="question-2">
+                        <div class="question_wrapper">
+                            <h2>Questão 2</h2>
+                            <h3>Qual desses personagens foi o primeiro vingador?</h3>
+                            <div class="answer_wrapper">
+                                <input id="question-2-answer-a" type="radio" name="favelang" value="1">Capitão america<br>
+                                <input id="question-2-answer-b" type="radio" name="favelang" value="0">Homem de ferro<br>
+                                <input id="question-2-answer-c" type="radio" name="favelang" value="0">Hulk<br>
+                            </div>
+                            <div id="submit2" class="button">Responder</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
 
-              <div id="question-7">
-                <h2>Questão 7</h2>
-                <h3>Qual nome do melhor amigo do capitão america?</h3>
-                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Sam Wilson<br>
-                <input id="question-1-answer-b" type="radio" name="favelang" value="1">Buchy Barnes<br>
-                <input id="question-1-answer-c" type="radio" name="favelang" value="0">Tony Stark<br>
-                <div id="submit7" class="button">Responder</div>
-                <div class="clearfix"></div>
-              </div>
+                    <div id="question-3">
+                        <div class="question_wrapper">
+                            <h2>Questão 3</h2>
+                            <h3>Quem foi Stan Lee?</h3>
+                            <div class="answer_wrapper">
+                                <input id="question-3-answer-a" type="radio" name="favelang" value="0">Não teve contato com a
+                                Marvel<br>
+                                <input id="question-3-answer-b" type="radio" name="favelang" value="0">Criador da Marvel<br>
+                                <input id="question-3-answer-c" type="radio" name="favelang" value="1">Escritor da Marvel<br>
+                            </div>
+                            <div id="submit3" class="button">Responder</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
 
-              <div id="question-8">
-                <h2>Questão 8</h2>
-                <h3>Quem é o irmão da wanda?</h3>
-                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Estive<br>
-                <input id="question-1-answer-b" type="radio" name="favelang" value="0">Peter<br>
-                <input id="question-1-answer-c" type="radio" name="favelang" value="1">Pietro<br>
-                <div id="submit8" class="button">Responder</div>
-                <div class="clearfix"></div>
-              </div>
+                    <div id="question-4">
+                        <div class="question_wrapper">
+                            <h2>Questão 4</h2>
+                            <h3>Qual dessas alternativas apresenta os 3 atores do homem aranha?</h3>
+                            <div class="answer_wrapper">
+                                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Robert Lewandowski, Tobey
+                                Garfield e Dennis Carry<br>
+                                <input id="question-1-answer-b" type="radio" name="favelang" value="0">Tom Holland, Mark Rúffalo
+                                e Brice Johnson<br>
+                                <input id="question-1-answer-c" type="radio" name="favelang" value="1">Tom Holland, Andrew
+                                Garfield e Tobey Maguire<br>
+                            </div>
+                            <div id="submit4" class="button">Responder</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
 
-              <div id="question-9">
-                <h2>Questão 9</h2>
-                <h3>Aonde ficava a joia da alma?</h3>
-                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Terra<br>
-                <input id="question-1-answer-b" type="radio" name="favelang" value="1">Vomir<br>
-                <input id="question-1-answer-c" type="radio" name="favelang" value="0">Asgard<br>
-                <div id="submit9" class="button">Responder</div>
-                <div class="clearfix"></div>
-              </div>
+                    <div id="question-5">
+                        <div class="question_wrapper">
+                            <h2>Questão 5</h2>
+                            <h3>Qual o nome do hulk?</h3>
+                            <div class="answer_wrapper">
+                                <input id="question-1-answer-a" type="radio" name="favelang" value="1">Bruce Benner<br>
+                                <input id="question-1-answer-b" type="radio" name="favelang" value="0">Tad Bruce<br>
+                                <input id="question-1-answer-c" type="radio" name="favelang" value="0">Bank Hodey<br>
+                            </div>
+                            <div id="submit5" class="button">Responder</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
 
-              <div id="question-10">
-                <h2>Questão 10</h2>
-                <h3>Qual das joias ficava com o doutor estranho?</h3>
-                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Mente<br>
-                <input id="question-1-answer-b" type="radio" name="favelang" value="0">Alma<br>
-                <input id="question-1-answer-c" type="radio" name="favelang" value="1">Tempo<br>
-                <div id="submit10" class="button">Responder</div>
-                <div class="clearfix"></div>
-              </div>
-    
-             <div id="question-11"> 
-               <h2>Obrigado por responder o Quiz!</h2>
-               <h3>Você acertou o total de: </h3>
-               <h1 id=printtotalscore></h1>
-               <p id=printscoreinfo></p>
-    
-             </div>
-    
-    
-    
+                    <div id="question-6">
+                        <div class="question_wrapper">
+                            <h2>Questão 6</h2>
+                            <h3>Quem construiu o visão?</h3>
+                            <div class="answer_wrapper">
+                                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Thor<br>
+                                <input id="question-1-answer-b" type="radio" name="favelang" value="0">Bruce Benner<br>
+                                <input id="question-1-answer-c" type="radio" name="favelang" value="1">Utron<br>
+                            </div>
+                            <div id="submit6" class="button">Responder</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div id="question-7">
+                        <div class="question_wrapper">
+                            <h2>Questão 7</h2>
+                            <h3>Qual nome do melhor amigo do capitão america?</h3>
+                            <div class="answer_wrapper">
+                                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Sam Wilson<br>
+                                <input id="question-1-answer-b" type="radio" name="favelang" value="1">Buchy Barnes<br>
+                                <input id="question-1-answer-c" type="radio" name="favelang" value="0">Tony Stark<br>
+                            </div>
+                            <div id="submit7" class="button">Responder</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div id="question-8">
+                        <div class="question_wrapper">
+                            <h2>Questão 8</h2>
+                            <h3>Quem é o irmão da wanda?</h3>
+                            <div class="answer_wrapper">
+                                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Estive<br>
+                                <input id="question-1-answer-b" type="radio" name="favelang" value="0">Peter<br>
+                                <input id="question-1-answer-c" type="radio" name="favelang" value="1">Pietro<br>
+                            </div>
+                            <div id="submit8" class="button">Responder</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div id="question-9">
+                        <div class="question_wrapper">
+                            <h2>Questão 9</h2>
+                            <h3>Aonde ficava a joia da alma?</h3>
+                            <div class="answer_wrapper">
+                                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Terra<br>
+                                <input id="question-1-answer-b" type="radio" name="favelang" value="1">Vomir<br>
+                                <input id="question-1-answer-c" type="radio" name="favelang" value="0">Asgard<br>
+                            </div>
+                            <div id="submit9" class="button">Responder</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div id="question-10">
+                        <div class="question_wrapper">
+                            <h2>Questão 10</h2>
+                            <h3>Qual das joias ficava com o doutor estranho?</h3>
+                            <div class="answer_wrapper">
+                                <input id="question-1-answer-a" type="radio" name="favelang" value="0">Mente<br>
+                                <input id="question-1-answer-b" type="radio" name="favelang" value="0">Alma<br>
+                                <input id="question-1-answer-c" type="radio" name="favelang" value="1">Tempo<br>
+                            </div>
+                            <div id="submit10" class="button">Responder</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div id="question-11">
+                        <h2>Obrigado por responder o Quiz!</h2>
+                        <h3>Você acertou o total de: </h3>
+                        <h1 id=printtotalscore></h1>
+                        <p id=printscoreinfo></p>
+
+                    </div>
+
+
+
                 </form>
-    
+
             </div>
-          </div>
-      </div>
-      
-    
-      <script src="quiz.js"></script>
+        </div>
+    </div>
+
+
+    <script src="quiz.js"></script>
 </body>
-</html> 
+
+</html>

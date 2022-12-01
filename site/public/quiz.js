@@ -1,3 +1,5 @@
+const nome_usuario = sessionStorage.getItem("NOME_USUARIO");
+
 var answers = {};
 
 var question_1 = document.getElementById('question-1');
@@ -159,7 +161,7 @@ function navigateTo(caminho) {
 }
 
 window.onload = () => {
-    const nome_usuario = sessionStorage.getItem("NOME_USUARIO");
+    
 
     if (nome_usuario) {
         const botao_sair = document.querySelector('.menu-sair');
@@ -168,43 +170,40 @@ window.onload = () => {
         botao_sair.style.display = "block"
     }
 
-    div_filmes = document.getElementById("filmes");
-
-    fetch("/filmes/listar", {
-        method: "GET",
-    }).then(response => {
-        console.log(response)
-     const container = document.getElementById("container")
-        if(response.ok) {
-            response.json().then(filmes => {
-                for (filme of filmes) {
-                    
-                    const card = document.createElement("div");
-                    const img = document.createElement("img");
-                    const nome = document.createElement("span");
-                    const sinopse = document.createElement("p")
-                    const avaliacao = document.createElement("h5")
-
-                    card.setAttribute("class", "card")
-                    img.src = filme.img;
-                    img.width = 100
-
-                    nome.innerHTML = filme.titulo;
-                    sinopse.innerHTML = filme.sinopse
-                    avaliacao.innerHTML = `Avaliação : ${filme.avaliacao}`
-
-
-                    card.append(img, nome, sinopse, avaliacao);
-                    container.append(card)
-        
-                    
-                }
-            })
-        }
-
-    }).catch(error => console.log("erro: ", error))
-
 }
+
+fetch("/quizes/cadastrar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+    pontosServer: totalScore(),
+    usuarioServer: nome_usuario
+        
+
+    })
+}).then(function (resposta) {
+
+    console.log("resposta: ", resposta);
+
+    if (resposta.ok) {
+
+
+
+    } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+    }
+}).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+});
+
+
+
+
+    
+ 
+
 
 function sair() {
     sessionStorage.clear()

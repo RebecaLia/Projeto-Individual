@@ -7,6 +7,44 @@
     font-family: "inter", sans-serif;
 }
 
+.container-nav {
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 100px;
+    padding-right: 100px;
+    position: absolute;
+    top: 0;
+    color: white;
+  }
+  
+  nav img {
+    width: 250px;
+    color: white;
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: white;
+  }
+  
+  nav ul li {
+    list-style: none;
+    color: white;
+  }
+
  body {
     width: 100%;
     height: 100vh;
@@ -23,64 +61,82 @@
     background: black;
 }
 
-.navebar {
-    top: 0;
-    position: fixed;
-    width: 100vw;
-    background: transparent;
+.container-nav {
+    width: 1200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-}
-
-.logo {
-    height: 30px;
-    cursor: pointer;
-}
-
-.menu {
+  }
+  
+  nav {
+    width: 100%;
+    height: 100px;
     display: flex;
-    gap: 32px;
-    padding-right: 20px;
     align-items: center;
-}
-
-.menu a {
-    text-decoration: none;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 100px;
+    padding-right: 100px;
+    position: absolute;
+    top: 0;
     color: white;
-    cursor: pointer
-}
-
-.menu-cadastro {
-    border: 1px solid white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    transition: all 0.8s ease-in-out;
-}
-
-.menu-cadastro:hover {
-    background-color: rgba(255, 0, 0, 0.8);
-}
-
-.menu-login {
-    border: 1px solid white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    transition: all 0.8s ease-in-out;
-}
-
-.menu-login:hover {
-    background-color: rgba(0, 0, 255, 0.8);
-}
+  }
+  
+  nav img {
+    width: 250px;
+    color: white;
+  }
+  
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: white;
+  }
+  
+  nav ul li {
+    list-style: none;
+    color: white;
+  }
+  
+  nav button {
+    width: 130px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    border: 1px solid red;
+    transition: all 0.3s;
+    color: white;
+  }
+  
+  .btn-login {
+    background-color: red;
+  }
+  
+  .btn-login:hover {
+    background-color: rgb(158, 1, 1);
+    color: white;
+  }
+  
+  .btn-cadastro {
+    background-color: rgba(255, 0, 0, 0);
+  }
+  
+  .btn-cadastro:hover {
+    background-color: red;
+  
+    color: white;
+  }
 
 
 .container {
     margin-top: 30px;
-    width: 80%;
+    width: 75%;
     height: 80vh;
     display: flex;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+    border-radius: 10px;
 }
 
 .form-image {
@@ -88,12 +144,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #001AFF;
+    background-image: url("https://wallpaperaccess.com/full/55572.jpg");
     padding: 1rem;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
 }
 
 .form-image img {
-    width: 31rem;
+    width: 20rem;
 }
 
 .form {
@@ -104,6 +166,8 @@
     flex-direction: column;
     background-color: #fff;
     padding: 3rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .form-header {
@@ -118,16 +182,24 @@
     align-items: center;
 }
 
+.login-button a button {
+    color: white;
+}
+
+
 .login-button button {
     border: none;
-    background-color: #001AFF;
+    background-color: #000b6f;
     padding: 0.4rem 1rem;
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
+    height: 50px;
+    width: 110px;
+    transition: all 0.3s;
 }
 
 .login-button button:hover {
-    background-color: #001AFF;
+    background-color: #000e8d;
 }
 
 .login-button button a {
@@ -165,8 +237,10 @@
 .input-box input {
     padding: 4%;
     border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px 6px black;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+width: 300px;
+    height: 50px;
 }
 
 .input-box input:hover {
@@ -186,16 +260,19 @@
 
 .continue-button button {
     border: none;
-    background-color: #001AFF;
+    background-color: #000c79;
     padding: 0.4rem 1rem;
     border-radius: 5px;
     cursor: pointer;
     width: 200px;
     margin: 0 auto;
+    height: 60px;
+    width: 200px;
+    transition: all 0.3s;
 }
 
 .continue-button button:hover {
-    background-color: #001AFF;
+    background-color: #00084f;
 }
 
 .continue-button button a {

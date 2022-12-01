@@ -2,78 +2,76 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marvel</title>
-    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marvel</title>
+  <link rel="stylesheet" type="text/css" href="./styles/style.css" />
 </head>
 
 <body>
-    <header class="navebar">
-        <img class="logo" src="./assets/logo marvel.png" onclick="navigateTo('/index.html')">
-        <nav class="menu">
-            <a class="menu-home">Home</a>
-            <a class="menu-cadastro" href="./cadastro.html">Cadastro</a>
-            <a class="menu-login" href="./login.html">Login</a>
+  <nav>
+    <div class="container-nav">
+      <img class="logo" src="./assets/logo marvel.png" onclick="navigateTo('/index.html')" />
 
-            <a class="menu-sair" style="display: none;" onclick="sair()">Sair</a>
-        </nav>
-    </header>
+      <ul>
+        <a href="./cadastro.html"><button class="btn-cadastro">Cadastro</button></a>
+        <a href="./login.html"><button class="btn-login">Login</button></a>
+      </ul>
+    </div>
+  </nav>
 
+  <div class="container">
+    <div class="container-esquerda">
+      <h1>
+        Conheça o mundo cinematografico <br />
+        da Marvel!
+      </h1>
 
-    <main class="corpo">
-        <section class="conteudo">
-            <div class="conteudo-principal">
-            </div>
-            <img class="img-corpo" src="./assets/marvel logo.png" alt="">
-        </section>
-        <div class="conteudo-secundario">
-            <img class="conteudo-secundario-img" src="./assets/Marvel 6.png" alt="">
-            <h3 class="conteudo-secundario-texto">
-                <img
-                    src="https://v5j9q4b5.rocketcdn.me/wp-content/uploads/2020/08/martin-goodman-conheca-a-historia-de-um-dos-criadores-da-marvel-scaled.jpg.webp" />
-                <span>
-                    Fundada no começo da década de 1930 por Martin Goodman, a Marvel Comics foi originalmente chamada de
-                    Timely Comics. Seu fundador era editor de revistas que faziam sucesso com histórias de faroeste.
-                    Visionário, Martin Goodman expandiu seu trabalho no sentido de um mercado muito promissor.
-                </span>
-            </h3>
-        </div>
-        <footer class="footer">
-            &copy; Direitos reservados à Rebeca Lia - 2022.
-        </footer>
+      <br />
+      <span>
+        A Marvel Entertainment foi fundada em 1939, nos Estados Unidos, por Martin Goodman. A empresa, conhecida
+        originalmente pelos quadrinhos, se transformou em uma das principais empresas do entretenimento mundial, com
+        grande presença entre os filmes de maior bilheteria da história.
+      </span>
 
-    </main>
+      <button>Saiba mais!</button>
+    </div>
 
-    <footer>
+    <div class="container-direita">
+      <iframe width="550" height="300" src="https://www.youtube.com/embed/6jIz_8tokvg"
+        title="Homem-Formiga e a Vespa: Quantumania | Trailer Oficial Dublado" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
 
-    </footer>
+  <footer></footer>
 </body>
 
 </html>
 
 <script>
-    function navigateTo(caminho) {
-        window.location.href = caminho;
+  function navigateTo(caminho) {
+    window.location.href = caminho;
+  }
+
+  window.onload = () => {
+    const nome_usuario = sessionStorage.getItem("NOME_USUARIO");
+
+    if (nome_usuario) {
+      const botao_cadastro = document.querySelector(".menu-cadastro");
+      const botao_login = document.querySelector(".menu-login");
+      const botao_sair = document.querySelector(".menu-sair");
+
+      botao_cadastro.style.display = "none";
+      botao_login.style.display = "none";
+      botao_sair.style.display = "block";
     }
+  };
 
-    window.onload = () => {
-        const nome_usuario = sessionStorage.getItem("NOME_USUARIO");
-
-        if (nome_usuario) {
-            const botao_cadastro = document.querySelector('.menu-cadastro');
-            const botao_login = document.querySelector('.menu-login');
-            const botao_sair = document.querySelector('.menu-sair');
-
-            botao_cadastro.style.display = "none";
-            botao_login.style.display = "none";
-            botao_sair.style.display = "block"
-        }
-    }
-
-    function sair() {
-        sessionStorage.clear()
-        navigateTo(window.location.href)
-    }
+  function sair() {
+    sessionStorage.clear();
+    navigateTo(window.location.href);
+  }
 </script>

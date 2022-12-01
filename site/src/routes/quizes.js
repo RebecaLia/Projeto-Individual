@@ -1,14 +1,19 @@
 var express = require("express");
 var router = express.Router();
 
-var filmesController = require("../controllers/quizController");
+var quizController = require("../controllers/quizController");
 
 router.get("/", function (req, res) {
     quizController.testar(req, res);
 });
 
-router.get("/listar", function (req, res) {
-    quizController.listar(req, res);
+router.get("/ranking", function (req, res) {
+    quizController.ranking(req, res);
+});
+
+router.post("/cadastrar", function (req, res) {
+    quizController.cadastrar(req, res);
 });
 
 module.exports = router;
+
