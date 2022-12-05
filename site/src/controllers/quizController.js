@@ -25,14 +25,18 @@ function ranking(req, res) {
 }
 
 function cadastrar(req, res) {
-    var pontuacao = req.body.pontosServer;
+
+
+    console.log(req.body);
+    
+    var pontuacao = req.body.pontuacaoServer;
     var fk_usuario = req.body.usuarioServer;
     
 
     // Faça as validações dos valores
-    if (pontuacao == undefined) {
+    if (!pontuacao) {
         res.status(400).send("Seu pontuacao está undefined!");
-    } else if (fk_usuario == undefined) {
+    } else if (!fk_usuario) {
         res.status(400).send("Seu fk_usuario está undefined!");
     } else {
         

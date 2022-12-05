@@ -1,4 +1,5 @@
 const nome_usuario = sessionStorage.getItem("NOME_USUARIO");
+const id_usuario = sessionStorage.getItem("ID_USUARIO");
 
 var answers = {};
 
@@ -149,6 +150,31 @@ submit10.addEventListener('click', function(){
 submit10.addEventListener('click', function(){
     document.getElementById("printtotalscore").innerHTML = `${totalScore()} / 10`;
     document.getElementById("printscoreinfo").innerHTML = getInfoBasedOnScore();
+
+    console.log(totalScore())
+    fetch("/quizes/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            pontuacaoServer: totalScore(),
+            usuarioServer: id_usuario
+        })
+    }).then(function (resposta) {
+    
+        console.log("resposta: ", resposta);
+    
+        if (resposta.ok) {
+    
+    
+    
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
 })
 
 function growProgressBar(percentage_width){
@@ -165,38 +191,10 @@ window.onload = () => {
 
     if (nome_usuario) {
         const botao_sair = document.querySelector('.menu-sair');
-
-        
         botao_sair.style.display = "block"
     }
 
 }
-
-fetch("/quizes/cadastrar", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-    pontosServer: totalScore(),
-    usuarioServer: nome_usuario
-        
-
-    })
-}).then(function (resposta) {
-
-    console.log("resposta: ", resposta);
-
-    if (resposta.ok) {
-
-
-
-    } else {
-        throw ("Houve um erro ao tentar realizar o cadastro!");
-    }
-}).catch(function (resposta) {
-    console.log(`#ERRO: ${resposta}`);
-});
 
 
 

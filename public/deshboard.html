@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/deshboard.css">
+  <title>Perfil</title>
+</head>
+
+<body>
+  <header class="navebar">
+    <img class="logo" src="./assets/logo marvel.png" onclick="navigateTo('/index.html')">
+    <nav class="menu">
+
+      <a class="menu-filme" href="./filmes.html">Filmes</a>
+      <a class="menu-filme" href="./quiz.html">Quiz</a>
+      <a class="menu-filme">Dashboard</a>
+      <a class="menu-sair" onclick="sair()">Sair</a>
+    </nav>
+  </header>
+
+
+  <div class="container">
+    <p>
+
+    </p>
+
+    <h1>Dashboard<span> - Avaliações</span></h1>
+
+
+
+    <div>
+
+      <div class="title-chart">Filmes com maior número de Avaliação</div>
+
+      <div class="container-chart">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+
+    <div>
+
+      <div class="title-chart">Ranking Quiz</div>
+      <table id="tabela">
+        <tr>
+          <th>Nome</th>
+          <th>Pontuação</th>
+        </tr>
+      </table>
+
+      <div id="ranking">
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+  const ctx = document.getElementById('myChart');
+  const ctx2 = document.getElementById('myChartPie');
+
+  const ranking_div = document.getElementById("ranking");
+
+  fetch("/quizes/ranking", {
+    method: "GET",
+  }).then(response => {
+    if (response.ok) {
+      response.json().then(rankings => {
+        
+        console.log(rankings)
+        for (let index = 0; index < rankings.length; index++) {
+          tabela.innerHTML += `<tr>
+          <td>${rankings[index].nome}</td>
+          <td>${rankings[index].pontuacao}</td>
+          </tr>`
+
+        }
+      })
+    }
+  }).catch(error => console.log("erro: ", error))
+
+  fetch("/filmes/listar", {
+    method: "GET",
+  }).then(response => {
+    if (response.ok) {
+      response.json().then(filmes => {
+
+        const titulo_filmes = filmes.map(filme => filme.titulo);
+        const avaliacao_decrescente_filmes = filmes.map(filme => filme.avaliacao).sort((a, b) => b - a);
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: titulo_filmes,
+            datasets: [{
+              label: 'Top filmes marvel',
+              data: avaliacao_decrescente_filmes,
+              borderWidth: 1,
+              backgroundColor: 'red'
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+
+        const filmes_menos_avaliados = filmes.filter(filme => filme.avaliacao <= 3);
+
+        new Chart(ctx2, {
+          type: 'pie',
+          data: {
+            labels: filmes_menos_avaliados.map(filme => filme.titulo),
+            datasets: [{
+              label: 'Top filmes marvel',
+              data: filmes_menos_avaliados.map(filme => filme.avaliacao),
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      })
+    }
+
+  }).catch(error => console.log("erro: ", error))
+
+</script>
+
+
+<style>
+  .container {
+    width: 100%;
+    height: 86vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 100px;
+    padding-right: 100px;
+    color: white;
+    padding-top: 130px;
+  }
+
+  .container h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 60px;
+    margin-top: 120px;
+  }
+
+  h1 span {
+    font-size: 25px;
+    font-weight: 100;
+  }
+
+
+  .container-chart {
+    width: 700px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+  }
+
+  .container-chart-pie {
+    width: 700px;
+    height: 500px;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+</style>

@@ -19,13 +19,20 @@ function entrar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(nome, sobrenome, email, cel, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, sobrenome, email, senha, cel);
+async function cadastrar(nome, email, cel, senha, documento) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha, cel, documento);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
+
+    var instrucao_documento = `INSERT INTO identificao (tipo, numero) VALUES ("CPF", '${documento}')`;
+
+    await database.executar(instrucao_documento);
+
+    var ultimo_documento = await database.executar(`select * from identificao order by id desc limit 1;`);
+
     var instrucao = `
-        INSERT INTO usuarios (nome, sobrenome, email, cel, senha) VALUES ('${nome}', '${sobrenome}', '${email}', '${cel}', '${senha}');
+        INSERT INTO usuarios (nome, email, cel, senha, fk_identificacao) VALUES ('${nome}', '${email}', '${cel}', '${senha}', '${ultimo_documento[0]['id']}'  );
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

@@ -43,8 +43,8 @@
                             required>
                     </div>
                     <div class="input-box">
-                        <label for="segundoNome">Sobrenome</label>
-                        <input id="segundoNome" type="text" name="segundoNome" placeholder="Digite o seu sobrenome"
+                        <label for="cpf">CPF</label>
+                        <input id="cpf" type="text" name="segundoNome" placeholder="Digite o seu cpf"
                             required>
                     </div>
                     <div class="input-box">
@@ -84,13 +84,13 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = primeiroNome.value;
-        var sobrenomeVar = segundoNome.value;
         var emailVar = email.value;
         var celularVar = celular.value;
         var senhaVar = senha.value;
         var confirmacaoSenhaVar = confirmacaoSenha.value;
+        var cpfVar = cpf.value;
 
-        if (nomeVar == "" ||sobrenomeVar == "" || emailVar == "" ||celularVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || emailVar == "" ||celularVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cpfVar == "") {
             // cardErro.style.display = "block"
             alert("Preencha os campos corretamente");
             return false;
@@ -106,10 +106,10 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
-                sobrenomeServer: sobrenomeVar,
                 emailServer: emailVar,
                 celularServer: celularVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                documentoServer: cpfVar
             })
         }).then(function (resposta) {
 
